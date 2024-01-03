@@ -27,17 +27,17 @@ class Livre:
         if self.__pages is not int(self.__pages):
             raise ValueError("Le nombre de pages ne peut être à nombre à virgule")
     
-    def get_disponible(self):
+    def verification(self):
         return self.__disponible
     
     def emprunter(self):
-        if self.__disponible:
+        if self.verification() == True:
             self.__disponible = False
         else:
             raise ValueError("Le livre est déjà emprunté")
     
     def rendre(self):
-        if not self.__disponible:
+        if not self.verification():
             self.__disponible = True
         else:
             raise ValueError("Le livre est déjà rendu")
